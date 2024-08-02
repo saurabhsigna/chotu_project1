@@ -77,7 +77,7 @@ export const sendToSingleDeviceViaId = async (userId: string) => {
     const message2 = {
         token: userData[0].token,
 
-        notification: {
+        data: {
             title: titleBody ? titleBody : "$FooCorp up 1.43% on the day",
             body: msgBody
                 ? msgBody

@@ -5,6 +5,8 @@ import path from "path"
 import { MqttManager } from "@utils/mqtt/MQTTManager";
 const clientId = `mqtt_${Math.random().toString(16).slice(3)}`;
 
+const crtPath = path.resolve(__dirname, '../../../files/MQTT_CA.crt')
+const fileContents = fs.readFileSync(crtPath);
 const client = mqtt.connect(mqttConfig.connectUrl, {
     clientId,
 
@@ -12,8 +14,7 @@ const client = mqtt.connect(mqttConfig.connectUrl, {
     password: mqttConfig.password,
     protocol: "mqtts",
     // rejectUnauthorized: true,
-
-    ca: fs.readFileSync("../server/files/MQTT_CA.crt")
+    ca: fileContents
 })
 
 

@@ -2,10 +2,11 @@
 import admin from "firebase-admin"
 import { getMessaging } from "firebase-admin/messaging"
 import serviceAccount from "@src/configs/serviceKey.json"
+import { cert, ServiceAccount } from "firebase-admin/app"
 
 
 
-
+const serviceAccountVar = serviceAccount as ServiceAccount
 export class CoreManager {
 
     private static instance: any
@@ -25,7 +26,7 @@ export class CoreManager {
 
     public initFCM() {
         admin.initializeApp({
-            credential: admin.credential.cert(serviceAccount),
+            credential: cert(serviceAccountVar)
         });
 
 

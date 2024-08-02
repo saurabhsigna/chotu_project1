@@ -9,7 +9,7 @@ function uniqueNameGenerator() {
     const config: Config = {
         dictionaries: [adjectives, colors, animals],
         separator: '-',
-        seed: 120498,
+
     };
 
     const nameFromSeed: string = uniqueNamesGenerator(config);

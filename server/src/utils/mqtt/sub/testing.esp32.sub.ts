@@ -1,3 +1,4 @@
+import { sendToMultipleViaTopic } from "@utils/fcm/sendToMultipleDevice.utils";
 import { sendToSingleDeviceViaId } from "@utils/fcm/sendToSingleDevice.utils";
 import mqtt from "mqtt/*";
 const DEBOUNCE_TIME = 9999;
@@ -20,7 +21,7 @@ const esp32SubHandler = (client: mqtt.MqttClient) => {
             if (currentTime - lastLogTime > DEBOUNCE_TIME) {
                 lastLogTime = currentTime
                 console.log(`Message received on ${receivedTopic}: ${message.toString()}`);
-                sendToSingleDeviceViaId("continuous-gray-dragonfly")
+                sendToMultipleViaTopic("testing")
             }
             // Handle the message
 
