@@ -108,3 +108,4 @@ dist
 /files/MQTT_CA.crt 
 /src/configs/serviceKey.json
 /src/configs/fcmKey.json
+mindMap
